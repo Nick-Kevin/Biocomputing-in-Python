@@ -1,4 +1,4 @@
-from compute_polynomial_equation import horner
+from compute_polynomial_equation import horner, display_function
 
 def calculate_reccurence_step(interval, subintervals):
     a = interval[0]
@@ -20,32 +20,8 @@ def euler(interval, subintervals, coefficients, coefficients_number):
         print(i)
     return x[len(x)-1]
 
-def display_function(number_of_coefficients, coefficients_list):
-    Degree = number_of_coefficients - 1
-    TheFunction = ""
-    for coefficient in coefficients_list:
-        if Degree == 0:
-            if coefficient != 0:
-                TheFunction += str(coefficient)
-        elif Degree == 1:
-            if coefficient == 1:
-                TheFunction += "x + "
-            elif coefficient == 0:
-                TheFunction += ""
-            else:
-                TheFunction += str(coefficient) + "x + "
-        else:
-            if coefficient == 1:
-                TheFunction += "x^" + str(Degree) + " + "
-            elif coefficient == 0:
-                TheFunction += ""
-            else:
-                TheFunction += str(coefficient) + "x^" + str(Degree) + " + "
-        Degree -= 1
-    print("So f(x,t) =", TheFunction)
-
 def main():
-    NumberOfCoefficients = int(input("\nFor the f(x,t) function:\nEnter the number of coefficients: "))
+    NumberOfCoefficients = int(input("\nFor the f(x,t) function\nEnter the number of coefficients: "))
     CoefficientsOfTheFunction = []
     Degree = NumberOfCoefficients - 1
     for i in range(NumberOfCoefficients):

@@ -4,6 +4,30 @@ def horner(coefficients, coefficients_number, x):
         Result = Result*x + coefficients[i]
     return Result
 
+def display_function(number_of_coefficients, coefficients_list):
+    Degree = number_of_coefficients - 1
+    TheFunction = ""
+    for coefficient in coefficients_list:
+        if Degree == 0:
+            if coefficient != 0:
+                TheFunction += str(coefficient)
+        elif Degree == 1:
+            if coefficient == 1:
+                TheFunction += "x + "
+            elif coefficient == 0:
+                TheFunction += ""
+            else:
+                TheFunction += str(coefficient) + "x + "
+        else:
+            if coefficient == 1:
+                TheFunction += "x^" + str(Degree) + " + "
+            elif coefficient == 0:
+                TheFunction += ""
+            else:
+                TheFunction += str(coefficient) + "x^" + str(Degree) + " + "
+        Degree -= 1
+    print("So f(x,t) =", TheFunction)
+
 X = 3
 Coefficient = [2, -6, 2, -1]
 CoefficientsNumber = len(Coefficient)
