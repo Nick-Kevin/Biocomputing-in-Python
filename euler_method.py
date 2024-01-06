@@ -7,17 +7,21 @@ def calcul_pas_de_reccurence(intervalle, sous_intervalles):
     h = (b-a)/n
     return h
 
-def euler(intervalle, sous_intervalles, coefficients, coefficients_number):
+def euler(intervalle, sous_intervalles, liste_coefficients):
     a = intervalle[0]
     n = sous_intervalles
     x = []
     x.append(a)
     h = calcul_pas_de_reccurence(intervalle, sous_intervalles)
+    NombreDeCoefficients = len(liste_coefficients)
     for k in range(n):
-        NouveauX = x[k] + h*calcul_polynome(coefficients, coefficients_number, x[k])
+        NouveauX = x[k] + h*calcul_polynome(liste_coefficients, NombreDeCoefficients, x[k])
         x.append(NouveauX)
+    print("\nSolution approchée")
+    NumeroDeX = 0
     for i in x:
-        print(i)
+        print("x" + str(NumeroDeX) + ":", i)
+        NumeroDeX += 1
     return x[len(x)-1]
 
 def principale():
@@ -28,7 +32,17 @@ def principale():
         Coefficient = int(input("Enter the coefficient for x^"+str(Degre)+": "))
         CoefficientsDeLaFonction.append(Coefficient)
         Degre -= 1
+    print("Pour l'interval [a,b]")
+    Intervalle = []
+    a = int(input("Entrez a: "))
+    Intervalle.append(a)
+    b = int(input("Entrez b: "))
+    Intervalle.append(b)
+    NombreDeSousIntervalle = int(input("Entrez le nombre de sous-intervalles: "))
     print()
     afficher_fonction(NombreDeCoefficients, CoefficientsDeLaFonction)
+    print("L'intervalle [a,b] est:", Intervalle)
+    print("Le nombre de sous-intervalles n est:", NombreDeSousIntervalle)
+    euler(Intervalle, NombreDeSousIntervalle, CoefficientsDeLaFonction)
 
 principale()

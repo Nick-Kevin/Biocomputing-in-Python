@@ -26,10 +26,4 @@ def afficher_fonction(nombre_de_coefficients, liste_coefficients):
             else:
                 AfficherFonction += str(coefficient) + "x^" + str(Degre) + " + "
         Degre -= 1
-    print("Donc la fonction est f(x,t) =", AfficherFonction)
-
-X = 3
-Coefficient = [2, -6, 2, -1]
-CoefficientsNumber = len(Coefficient)
-
-print(calcul_polynome(Coefficient, CoefficientsNumber, X))
+    print("Donc la fonction f(x,t) =", AfficherFonction)
