@@ -1,21 +1,21 @@
-from compute_polynomial_equation import horner
+from compute_polynomial_equation import calcul_polynome
 
-def calculate_reccurence_step(interval, subintervals):
-    a = interval[0]
-    b = interval[1]
-    n = subintervals
+def calcul_pas_de_reccurence(intervalle, sous_intervalles):
+    a = intervalle[0]
+    b = intervalle[1]
+    n = sous_intervalles
     h = (b-a)/n
     return h
 
-def euler(interval, subintervals, coefficients, coefficients_number):
-    a = interval[0]
-    n = subintervals
+def euler(intervalle, sous_intervalles, coefficients, coefficients_number):
+    a = intervalle[0]
+    n = sous_intervalles
     x = []
     x.append(a)
-    h = calculate_reccurence_step(interval, subintervals)
+    h = calcul_pas_de_reccurence(intervalle, sous_intervalles)
     for k in range(n):
-        NewX = x[k] + h*horner(coefficients, coefficients_number, x[k])
-        x.append(NewX)
+        NouveauX = x[k] + h*calcul_polynome(coefficients, coefficients_number, x[k])
+        x.append(NouveauX)
     for i in x:
         print(i)
     return x[len(x)-1]
