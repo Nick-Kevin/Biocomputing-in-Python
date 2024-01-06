@@ -20,18 +20,10 @@ def euler(interval, subintervals, coefficients, coefficients_number):
         print(i)
     return x[len(x)-1]
 
-def main():
-    NumberOfCoefficients = int(input("\nFor the f(x,t) function:\nEnter the number of coefficients: "))
-    CoefficientsOfTheFunction = []
-    Degree = NumberOfCoefficients - 1
-    for i in range(NumberOfCoefficients):
-        Coefficient = int(input("Enter the coefficient for x^"+str(Degree)+": "))
-        CoefficientsOfTheFunction.append(Coefficient)
-        Degree -= 1
-    print()
-    Degree = NumberOfCoefficients - 1
+def display_function(number_of_coefficients, coefficients_list):
+    Degree = number_of_coefficients - 1
     TheFunction = ""
-    for coefficient in CoefficientsOfTheFunction:
+    for coefficient in coefficients_list:
         if Degree == 0:
             if coefficient != 0:
                 TheFunction += str(coefficient)
@@ -51,5 +43,16 @@ def main():
                 TheFunction += str(coefficient) + "x^" + str(Degree) + " + "
         Degree -= 1
     print("So f(x,t) =", TheFunction)
+
+def main():
+    NumberOfCoefficients = int(input("\nFor the f(x,t) function:\nEnter the number of coefficients: "))
+    CoefficientsOfTheFunction = []
+    Degree = NumberOfCoefficients - 1
+    for i in range(NumberOfCoefficients):
+        Coefficient = int(input("Enter the coefficient for x^"+str(Degree)+": "))
+        CoefficientsOfTheFunction.append(Coefficient)
+        Degree -= 1
+    print()
+    display_function(NumberOfCoefficients, CoefficientsOfTheFunction)
 
 main()
