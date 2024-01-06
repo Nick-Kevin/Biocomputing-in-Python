@@ -17,8 +17,11 @@ def euler(interval, subintervals, coefficients):
     for k in range(n):
         NewX = x[k] + h*horner(coefficients, CoefficientsNumber, x[k])
         x.append(NewX)
+    print("\nApproched solution")
+    XNumber = 0
     for i in x:
-        print(i)
+        print("x" + str(XNumber) + ":", i)
+        XNumber += 1
     return x[len(x)-1]
 
 def main():

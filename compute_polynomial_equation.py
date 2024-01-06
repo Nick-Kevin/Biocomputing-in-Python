@@ -27,9 +27,3 @@ def display_function(number_of_coefficients, coefficients_list):
                 TheFunction += str(coefficient) + "x^" + str(Degree) + " + "
         Degree -= 1
     print("So f(x,t) =", TheFunction)
-
-X = 3
-Coefficient = [2, -6, 2, -1]
-CoefficientsNumber = len(Coefficient)
-
-print(horner(Coefficient, CoefficientsNumber, X))
